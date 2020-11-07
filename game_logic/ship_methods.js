@@ -20,6 +20,15 @@ const fire = (player, coordinates) => {
 	if (ship) damageShip(ship, coordinates);
 };
 
+const takeTurn = (opposingPlayer, guessFunction) => {
+	let coordinates = guessFunction()
+	fire(opposingPlayer, coordinates)
+	let gameOver = checkGameStatus()
+
+	return gameOver;
+}
+
 module.exports.checkForShip = checkForShip;
 module.exports.damageShip = damageShip;
 module.exports.fire = fire;
+module.exports.takeTurn = takeTurn
